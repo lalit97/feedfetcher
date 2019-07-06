@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
-
+from .tasks import get_number
 
 
 def home_view(request):
-    return HttpResponse('Hello world!')
+    num = get_number()
+    return HttpResponse(num)
