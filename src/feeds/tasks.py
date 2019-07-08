@@ -1,9 +1,11 @@
+# Create your tasks here
 from __future__ import absolute_import, unicode_literals
-from celery import task
-import random
+from celery import shared_task
+import requests
 
 
-@task()
+@shared_task
 def get_number():
-    return ''.join(str(random.randrange(0,9)) for i in range(7))
-     
+    url = 'http://mapps.cricbuzz.com/cbzios/match/livematches'
+    resp = requests.get(url).json()
+    return resp

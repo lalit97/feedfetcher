@@ -105,20 +105,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Celery application definition
-# http://docs.celeryproject.org/en/v4.0.2/userguide/configuration.html
-
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
-CELERY_BEAT_SCHEDULE = {
-    'get_number': {
-        'task': 'feeds.tasks.get_number',
-        'schedule': crontab(minute=1),
-    }
-}
+CELERY_TIMEZONE = 'Asia/Kolkata'
+# CELERY_BEAT_SCHEDULE = {
+#     'get_number': {
+#         'task': 'feeds.tasks.get_number',
+#         'schedule': crontab(minute=1),
+#     }
+# }
+
+
 
 
 # Internationalization
@@ -126,7 +126,7 @@ CELERY_BEAT_SCHEDULE = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

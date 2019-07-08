@@ -3,5 +3,8 @@ from .tasks import get_number
 
 
 def home_view(request):
-    num = get_number()
-    return HttpResponse(num)
+    resp = get_number.delay()
+    return HttpResponse('hello world!')
+
+
+    #url = resp['url']['match']
