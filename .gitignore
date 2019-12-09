@@ -3,7 +3,7 @@ bin/
 include/
 share/
 src/dump.rdb
-
+dump.rdb
 
 #################################
 # Created by https://www.gitignore.io/api/django
