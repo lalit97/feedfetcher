@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import ScoreCard
+from .models import RssUrl, News
 
-admin.site.register(ScoreCard)
+admin.site.register(RssUrl)
+admin.site.register(News)

@@ -105,33 +105,28 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Celery application definition
+
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Kolkata'
-# CELERY_BEAT_SCHEDULE = {
-#     'get_number': {
-#         'task': 'feeds.tasks.get_number',
-#         'schedule': crontab(minute=1),
-#     }
-# }
-
-
+CELERY_BEAT_SCHEDULE = {
+    'get_xml_data': {
+        'task': 'feeds.tasks.get_xml_data',
+        'schedule': crontab(minute='*/2'),
+    }
+}
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'Asia/Kolkata'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 

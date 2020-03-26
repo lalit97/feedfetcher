@@ -5,6 +5,12 @@ share/
 src/dump.rdb
 dump.rdb
 
+
+../.DS_Store
+../pyvenv.cfg
+.DS_Store
+pyvenv.cfg
+./feeds/migrations/
 #################################
 # Created by https://www.gitignore.io/api/django
 # Edit at https://www.gitignore.io/?templates=django

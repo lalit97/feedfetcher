@@ -1,17 +1,16 @@
 from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
-from .tasks import get_number
-from .models import ScoreCard
+from .models import RssUrl, News
+
 
 def home_view(request):
-    get_number.delay()  # will store result for the next call
-    LatestScore = ScoreCard.objects.all().last()
-    score = LatestScore.score
-    wicket = LatestScore.wicket
-    overs = LatestScore.overs
+    LatestNews = News.objects.all().last()
+    title = LatestNews.title
+    description = LatestNews.description
+    link = LatestNews.link
     response = {
-        'score': score,
-        'wicket': wicket,
-        'overs': overs
+        'title': title,
+        'description': description,
+        'full_story': link
     }
     return JsonResponse(response)

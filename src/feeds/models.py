@@ -1,10 +1,17 @@
 from django.db import models
 
 
-class ScoreCard(models.Model):
-    score = models.IntegerField()
-    wicket = models.IntegerField()
-    overs = models.IntegerField()
+class RssUrl(models.Model):
+    url = models.CharField(max_length=100)
 
     def __str__(self):
-        return f'{self.score}/{self.wicket} ({self.overs})'
+        return str(self.url)
+
+
+class News(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(null=True)
+    link = models.CharField(max_length=200)
+
+    def __str__(self):
+        return str(self.title)
