@@ -1,16 +1,10 @@
 from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from .models import RssUrl, News
+from rest_framework import generics
+from .serializers import NewsSerializer
 
 
-def home_view(request):
-    LatestNews = News.objects.all().last()
-    title = LatestNews.title
-    description = LatestNews.description
-    link = LatestNews.link
-    response = {
-        'title': title,
-        'description': description,
-        'full_story': link
-    }
-    return JsonResponse(response)
+class NewsList(generics.ListAPIView):
+    queryset = News.objects.all().order_by('-id')[:5]
+    serializer_class = NewsSerializer
